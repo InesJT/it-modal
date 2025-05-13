@@ -1,0 +1,28 @@
+{
+  "name": "it-modal",
+  "version": "1.0.1",
+  "description": "Awesome modal component",
+  "author": "Ines Trabelsi",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/InesJT/it-modal"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "prop-types": "^15.8.1",
+    "react": "^19.1.0",
+    "vite-plugin-css-injected-by-js": "^3.5.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
+    "vite": "^6.3.5"
+  }
+}
