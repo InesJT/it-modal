@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 import './style.css';
 
-const ItModal = ({ isVisible, setIsVisible, title, body }) => {
+const ItModal = ({ isVisible, setIsVisible, title, body, color }) => {
   if (!isVisible) {
     return null;
   }
@@ -15,6 +15,11 @@ const ItModal = ({ isVisible, setIsVisible, title, body }) => {
     }
   }
 
+  // Helper to check if color is a valid hex color
+  const isValidHex = (hex) =>
+    typeof hex === 'string' &&
+    /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(hex);
+
   return (
     <div className="modal-overlay" onClick={handleBackgroundClick}>
       <div className="modal-container">
@@ -26,7 +31,10 @@ const ItModal = ({ isVisible, setIsVisible, title, body }) => {
             <h2 className="modal-title">{title}</h2>
           </div>
         )}
-        <div className={`modal-body ${!title ? 'no-header-body' : ''}`}>
+        <div
+          className={`modal-body ${!title ? 'no-header-body' : ''}`}
+          style={isValidHex(color) ? { color } : undefined}
+        >
           {body}
         </div>
       </div>
@@ -39,6 +47,7 @@ ItModal.propTypes = {
   setIsVisible: PropTypes.func.isRequired,
   title: PropTypes.string,
   body: PropTypes.node.isRequired,
+  color: PropTypes.string,
 };
 
 export default ItModal;
